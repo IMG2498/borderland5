@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: rgba(26, 26, 26, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.cta-button {
+    background: #ff5722;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.services {
+    padding: 50px 20px;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service {
+    background: #252525;
+    padding: 30px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.service i {
+    font-size: 3rem;
+    color: #ff5722;
+    margin-bottom: 15px;
+}
+
+footer {
+    padding: 20px;
+    background: #111;
+    margin-top: 50px;
+}
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 10%;
+    background: #1a1a1a;
+    color: white;
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.about.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-content {
+    max-width: 50%;
+}
+
+.about h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-visual {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-box {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(255, 87, 34, 0.3);
+    animation: float 3s infinite ease-in-out alternate;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Увеличиваем высоту body, чтобы было больше места */
+body {
+    min-height: 200vh; /* Можно изменить на 250vh или 300vh, если нужно ещё больше пространства */
+}
+
+/* Делаем секцию Contact больше */
+.contact {
+    min-height: 100vh; /* Теперь Contact будет занимать весь экран */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+/* Заголовок и текст по центру */
+.contact h2, .contact p {
+    text-align: center;
+}
+
+/* Отступ внизу, чтобы был запас при прокрутке */
+footer {
+    padding-bottom: 100px;
+}
+
+/* Контейнер для всплывающего окна */
+.popup {
+    position: absolute;
+    left: 50%;
+    bottom: 110%;
+    transform: translateX(-50%) scale(0.9);
+    width: 280px;
+    background: rgba(30, 30, 30, 0.95);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 10;
+}
+
+/* Картинка внутри всплывающего окна */
+.popup img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Появление окна при наведении */
+.service {
+    position: relative; /* Чтобы всплывающее окно позиционировалось относительно */
+}
+
+.service:hover .popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+}
+
+.navbar {
+    transition: transform 0.4s ease-in-out;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%); /* Убираем панель вверх */
+}
+.navbar.hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
